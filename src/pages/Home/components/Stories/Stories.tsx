@@ -4,7 +4,7 @@ import { Text, View, StyleSheet } from 'react-native'
 const Stories = () => {
 	return (
 		<View style={styles.container}>
-			<Text>stories</Text>
+			<Text>some shit</Text>
 		</View>
 	)
 }
