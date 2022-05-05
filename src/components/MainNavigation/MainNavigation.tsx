@@ -4,7 +4,11 @@ import { Text, View, StyleSheet } from 'react-native'
 const MainNavigation = () => {
 	return (
 		<View style={styles.container}>
-			<Text>main navigation</Text>
+			<Text>home</Text>
+			<Text>search</Text>
+			<Text>upload</Text>
+			<Text>statistics</Text>
+			<Text>profile</Text>
 		</View>
 	)
 }
@@ -12,6 +16,8 @@ const MainNavigation = () => {
 const styles = StyleSheet.create({
 	container: {
 		padding: 20,
+		flexDirection: 'row',
+		justifyContent: 'space-between',
 	},
 })
 

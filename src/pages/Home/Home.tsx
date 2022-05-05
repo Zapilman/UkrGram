@@ -11,31 +11,35 @@ import HomeHeader from './components/HomeHeader/HomeHeader'
 import Stories from './components/Stories/Stories'
 import PostItem from '../../components/PostItem/PostItem'
 import ModalOptions from './components/ModalOptions/ModalOptions'
+import { StatusBar } from 'expo-status-bar'
 
 const Home: FC = () => {
 	const [countOfPosts, setCountOfPosts] = useState<number>(8)
+	const [modalVisible, setModalVisible] = useState<boolean>(false)
 
 	return (
-		<View style={styles.container}>
-			<ModalOptions />
-			<HomeHeader />
-			<Stories />
-			<View
-				style={{
-					flex: 8,
-				}}
-			>
-				{/* <ScrollView>
-					{[...Array(countOfPosts).keys()].map((el: number) => {
-						return <PostItem />
-					})}
-				</ScrollView> */}
-				<FlatList
-					data={[...Array(10).keys()]}
-					renderItem={item => <PostItem />}
-				/>
+		<>
+			<StatusBar style='dark' />
+			<View style={styles.container}>
+				<HomeHeader />
+				<Stories />
+				<View
+					style={{
+						flex: 8,
+					}}
+				>
+					<FlatList
+						data={[...Array(10).keys()]}
+						renderItem={item => (
+							<PostItem
+								optionsClickHandler={() => setModalVisible(prev => !prev)}
+							/>
+						)}
+					/>
+					<ModalOptions isVisible={modalVisible} />
+				</View>
 			</View>
-		</View>
+		</>
 	)
 }
 

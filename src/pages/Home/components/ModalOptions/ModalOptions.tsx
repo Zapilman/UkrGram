@@ -1,10 +1,15 @@
+import { FC } from 'react'
 import { Modal, View, Text, StyleSheet, Button, Alert } from 'react-native'
 
-const ModalOptions = () => {
+interface Props {
+	isVisible: boolean
+}
+
+const ModalOptions: FC<Props> = ({ isVisible }: Props) => {
 	return (
 		<Modal
 			transparent={true}
-			visible={false}
+			visible={isVisible}
 			animationType='slide'
 			onRequestClose={() => {
 				Alert.alert('Modal has been closed.')
